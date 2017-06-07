@@ -28,7 +28,6 @@ module.exports = {
       exclude: /node_modules/,
       loader: "babel-loader",
       query: {
-				presets: ["react", "stage-2"],
         plugins: [
           [
             "react-transform", {
