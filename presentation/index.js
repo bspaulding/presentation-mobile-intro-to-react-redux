@@ -365,6 +365,41 @@ export default class Presentation extends React.Component {
 				</Slide>
 				<Slide>
 					<Heading textAlign='left' size={2}>
+						reselect
+					</Heading>
+					<Text textAlign='left' textColor='tertiary' textSize={24}>
+						createSelector - memoization
+					</Text>
+					<CodePane textAlign='left' margin="10px 0px 0px" lang='javascript' textSize={28} source={[
+						"// takes state, returns partial or new data",
+						"const getX = state => state.x;",
+						"const getY = state => state.y;",
+						"const getXTimesY = createSelector(",
+						"  getX,",
+						"  getY,",
+						"  (x, y) => x * y",
+						");"
+					].join('\n')}/>
+				</Slide>
+				<Slide>
+					<Heading textAlign='left' size={2}>
+						reselect
+					</Heading>
+					<Text textAlign='left' textColor='tertiary' textSize={24}>
+						createStructuredSelector - mapStateToProps helper
+					</Text>
+					<CodePane textAlign='left' margin="10px 0px 0px" lang='javascript' textSize={28} source={[
+						"const mapStateToProps = createStructuredSelector({",
+						"  x: getX,",
+						"  y: getY,",
+						"  z: getXTimesY",
+						"});",
+						"const state = { x: 2, y: 3 };",
+						"mapStateToProps(state); // => { x: 2, y: 3, z: 6 }"
+					].join('\n')}/>
+				</Slide>
+				<Slide>
+					<Heading textAlign='left' size={2}>
 						UI Layout
 					</Heading>
 					<Text textAlign='left' textSize={24} margin="20px 0px 0px">
